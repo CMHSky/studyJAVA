@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="hello world" class="net.spring.study.HelloWorld" init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello World! johnson."/>
+    </bean>
+
+<!--    注册后置处理器-->
+<!--    <bean class="net.spring.study.InitHelloWorld"/>-->
+<!--    <bean class="net.spring.study.InitHelloWorld2"/>-->
+
+<!--    构造函数注入-->
+    <bean id="student" class="net.spring.study.Student">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="陈白白"></constructor-arg>
+        <constructor-arg name="grade" ref="grade"></constructor-arg>
+    </bean>
+
+    <bean id="grade" class="net.spring.study.Grade">
+        <constructor-arg name="gradeId" value="4"></constructor-arg>
+        <constructor-arg name="gradeName" value="四年级"></constructor-arg>
+    </bean>
+
+<!--    setter注入-->
+    <bean id="student2" class="net.spring.study.Student2">
+        <property name="id" value="1"></property>
+        <property name="name" value="小莫七"></property>
+        <property name="grade" ref="grade2"></property>
+    </bean>
+
+    <bean id="grade2" class="net.spring.study.Grade2">
+        <property name="gradeId" value="2"></property>
+        <property name="gradeName" value="二年级"></property>
+    </bean>
+
+<!--    注入内部bean-->
+    <bean id="student3" class="net.spring.study.Student2">
+        <property name="id" value="5"></property>
+        <property name="name" value="棉花糖"></property>
+        <property name="grade">
+            <bean class="net.spring.study.Grade2">
+                <property name="gradeId" value="1"></property>
+                <property name="gradeName" value="一年级"></property>
+            </bean>
+        </property>
+    </bean>
+
+<!--    注入集合-->
+    <bean id="javaCollection" class="net.spring.study.JavaCollection">
+<!--        数组类型-->
+        <property name="array">
+            <array>
+                <value>陈白白</value>
+                <value>小莫七</value>
+                <value>七崽</value>
+                <value>棉花糖</value>
+            </array>
+        </property>
+<!--        在集合中设置对象类型的值-->
+<!--        <property name="courses">-->
+<!--            <array>-->
+<!--                <ref bean="course"></ref>-->
+<!--                <ref bean="course2"></ref>-->
+<!--                <ref bean="course3"></ref>-->
+<!--            </array>-->
+<!--        </property>-->
+<!--        List类型-->
+        <property name="list">
+            <list>
+                <value>Java</value>
+                <value>go</value>
+                <value>c#</value>
+            </list>
+        </property>
+<!--        Map类型-->
+        <property name="maps">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="GO" value="go"></entry>
+            </map>
+        </property>
+<!--        Set类型-->
+        <property name="sets">
+            <set>
+                <value>MySQL</value>
+                <value>Oracle</value>
+            </set>
+        </property>
+    </bean>
+
+<!--    注入其他属性-->
+    <bean id="injectNull" class="net.spring.study.InjectNull">
+        <!--    注入Null值-->
+        <property name="pNull">
+            <null/>
+        </property>
+        <!--    注入空字符串-->
+        <property name="pEmpty" value=""></property>
+        <!--    通过转义注入包含特殊符号的字面量-->
+<!--        <property name="pLiteral" value="&lt;哈哈哈哈&gt;"></property>-->
+        <!--    使用<![CDATA[]]>短字符串-->
+        <property name="pLiteral">
+            <value><![CDATA[<哈哈哈哈哈哈>]]></value>
+        </property>
+        <!--    级联属性赋值-->
+        <property name="dependBean" ref="grade3"></property>
+        <property name="dependBean.gradeId" value="8"></property>
+        <property name="dependBean.gradeName" value="八年级"></property>
+    </bean>
+
+    <bean id="grade3" class="net.spring.study.Grade2">
+        <property name="gradeId" value="7"></property>
+        <property name="gradeName" value="七年级"></property>
+    </bean>
+
+<!--    单例模式 singleton-->
+    <bean id="singletonBean" class="net.spring.study.SingletonBean" scope="singleton">
+        <property name="str" value="哈哈哈哈"></property>
+    </bean>
+
+<!--    原型模式 prototype-->
+    <bean id="prototypeBean" class="net.spring.study.SingletonBean" scope="prototype">
+        <property name="str" value="哈哈哈哈"></property>
+    </bean>
+
+<!--    通过接口实现自定义Bean生命周期-->
+    <bean id="lifeCycleBean" class="net.spring.study.LifeCycleBean">
+        <property name="name" value="接口实现"></property>
+    </bean>
+
+<!--    通过XML配置实现自定义Bean生命周期-->
+    <bean id="xmlLifeCycleBean" class="net.spring.study.XMLLifeCycleBean" init-method="init" destroy-method="destroy">
+        <property name="name" value="XML实现"></property>
+    </bean>
+
+<!--    通过注解实现自定义Bean生命周期-->
+    <!--    扫描注解-->
+    <context:component-scan base-package="net.spring.study"></context:component-scan>
+    <bean id="annotationLifeCycleBean" class="net.spring.study.AnnotationLifeCycleBean">
+        <constructor-arg name="name" value="注解实现"></constructor-arg>
+    </bean>
+
+<!--    Spring Bean 指定Bean之间的继承关系-->
+    <bean id="animal" class="net.spring.study.Animal">
+        <property name="name" value="动物"></property>
+        <property name="age" value="10"></property>
+    </bean>
+
+    <bean id="dog" class="net.spring.study.Dog" parent="animal">
+        <property name="name" value="小狗"></property>
+        <property name="call" value="汪汪汪"></property>
+    </bean>
+</beans>

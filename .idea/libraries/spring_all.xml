@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="spring-all">
+    <CLASSES>
+      <root url="jar://D:/Study/javaPkg/commons-logging-1.2/commons-logging-1.2.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-aop-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-aspects-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-beans-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-context-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-context-indexer-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-context-support-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-core-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-expression-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-instrument-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-jcl-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-jdbc-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-jms-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-messaging-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-orm-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-oxm-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-r2dbc-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-test-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-tx-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-web-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-webflux-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-webmvc-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-websocket-5.3.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
