@@ -24,6 +24,10 @@
       <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-webflux-5.3.13.jar!/" />
       <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-webmvc-5.3.13.jar!/" />
       <root url="jar://D:/Study/javaPkg/spring-framework-5.3.13/libs/spring-websocket-5.3.13.jar!/" />
+      <root url="jar://D:/Study/javaPkg/aspectj-1.9.6/files/lib/aspectjrt.jar!/" />
+      <root url="jar://D:/Study/javaPkg/aspectj-1.9.6/files/lib/aspectjtools.jar!/" />
+      <root url="jar://D:/Study/javaPkg/aspectj-1.9.6/files/lib/aspectjweaver.jar!/" />
+      <root url="jar://D:/Study/javaPkg/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

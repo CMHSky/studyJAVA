@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <bean id="hello world" class="net.spring.study.HelloWorld" init-method="init" destroy-method="destroy">
         <property name="message" value="Hello World! johnson."/>
@@ -155,5 +158,20 @@
     <bean id="dog" class="net.spring.study.Dog" parent="animal">
         <property name="name" value="小狗"></property>
         <property name="call" value="汪汪汪"></property>
+    </bean>
+
+<!--    aop-->
+<!--    定义目标对象-->
+    <bean id="userDao" class="net.spring.study.aop.advisor.UserDaoImpl"></bean>
+<!--    定义增强-->
+    <bean id="beforeAdvice" class="net.spring.study.aop.advisor.UserDaoBeforeAdvice"></bean>
+<!--    通过配置生成代理UserDao的代理对象-->
+    <bean id="userDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+<!--        设置目标对象-->
+        <property name="target" ref="userDao"/>
+<!--        设置实现的接口，value中写接口的全路径-->
+        <property name="proxyInterfaces" value="net.spring.study.aop.advisor.UserDao"/>
+<!--        需要使用value:增强Bean的名称-->
+        <property name="interceptorNames" value="beforeAdvice"/>
     </bean>
 </beans>

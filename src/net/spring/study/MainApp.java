@@ -1,5 +1,6 @@
 package net.spring.study;
 
+import net.spring.study.aop.advisor.UserDao;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
@@ -66,8 +67,15 @@ public class MainApp {
 //        LOGGER.info(l3);
 
         // Spring Bean 指定Bean之间的继承关系
-        Dog dog = context.getBean("dog", Dog.class);
-        System.out.println(dog);
+//        Dog dog = context.getBean("dog", Dog.class);
+//        System.out.println(dog);
+
+        // 一般切面的AOP开发
+        UserDao userDao = context.getBean("userDaoProxy", UserDao.class);
+        userDao.add();
+        userDao.delete();
+        userDao.modify();
+        userDao.get();
 
         context.close();
     }
